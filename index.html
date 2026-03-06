@@ -425,7 +425,7 @@
       margin-bottom: 1rem; letter-spacing: -0.02em;
     }
     .modal-desc {
-      font-size: 0.9rem; color: var(--muted);
+      font-size: 0.9rem; color: #444;
       line-height: 1.9; margin-bottom: 1.5rem;
       white-space: pre-line;
     }
@@ -446,17 +446,19 @@
     .modal-link svg { width: 13px; height: 13px; }
     /* ── Modal Sections ── */
     .modal-section {
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--line);
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #A8A49C;
     }
     .modal-section:last-of-type { border-bottom: none; }
     .modal-section-label {
       font-family: 'DM Mono', monospace;
       font-size: 0.6rem; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--muted);
+      text-transform: uppercase; color: #3a3a3a;
       margin-bottom: 1rem;
       display: flex; align-items: center; gap: 0.7rem;
+      border-left: 2px solid var(--accent2);
+      padding-left: 0.6rem;
     }
     .modal-section-label::after {
       content: ''; flex: 1; height: 1px; background: var(--line);
@@ -468,7 +470,7 @@
     .modal-row.reverse { flex-direction: row-reverse; }
     .modal-row-text {
       flex: 1;
-      font-size: 0.88rem; color: var(--muted); line-height: 1.85;
+      font-size: 0.88rem; color: #444; line-height: 1.85;
     }
     .modal-row-text h4 {
       font-family: 'DM Serif Display', serif;
@@ -533,7 +535,7 @@
     }
     .modal-drawio .mxgraph { width: 100%; }
     .modal-arch-desc {
-      font-size: 0.8rem; line-height: 1.9; color: var(--muted);
+      font-size: 0.8rem; line-height: 1.9; color: #444;
       margin-top: 0.9rem;
     }
     @media (max-width: 600px) {

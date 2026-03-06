@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio — Game Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'base',
+      themeVariables: {
+        primaryColor: '#e8e4dc',
+        primaryTextColor: '#1A1A1A',
+        primaryBorderColor: '#aaa',
+        lineColor: '#666',
+        secondaryColor: '#f0ede8',
+        tertiaryColor: '#F5F3EF',
+        fontSize: '14px',
+        fontFamily: 'DM Mono, monospace'
+      }
+    });
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -493,6 +511,31 @@
       font-size: 0.75rem; line-height: 1.9;
       color: var(--fg); white-space: pre-line;
     }
+    .modal-mermaid {
+      background: var(--tag-bg);
+      border: 1px solid var(--line);
+      padding: 1.5rem;
+      display: flex; justify-content: center;
+      overflow-x: auto;
+    }
+    .modal-mermaid { justify-content: center; }
+    .modal-mermaid .mermaid { display: flex; justify-content: center; }
+    .modal-mermaid svg { height: auto !important; max-width: 220px !important; }
+    .modal-mermaid.wide svg { max-width: 460px !important; }
+    .modal-drawio {
+      background: var(--tag-bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .modal-drawio .mxgraph { width: 100%; }
+    .modal-arch-desc {
+      font-size: 0.8rem; line-height: 1.9; color: var(--muted);
+      margin-top: 0.9rem;
+    }
     @media (max-width: 600px) {
       .modal-row, .modal-row.reverse { flex-direction: column; }
     }
@@ -767,30 +810,16 @@
   </div>
 
   <div class="projects-grid">
-    <!-- 1 -->
-    <div class="proj-card fade-up" onclick="openModal('p1')">
-      <div class="proj-thumb thumb-unreal">◈<span class="proj-thumb-label">Unreal Engine 5</span></div>
-      <div class="proj-body">
-        <div class="proj-body-top">
-        <div class="proj-category">대학원 · Unreal Engine</div>
-        <div class="proj-title">프로시저럴 던전 생성 시스템</div>
-        <div class="proj-desc">BSP 알고리즘 기반 자동 맵 생성 시스템. Unreal Engine 5로 개발한 로그라이크 던전 생성기.</div>
-        <div class="proj-tags"><span class="tag">Unreal Engine 5</span><span class="tag">C++</span><span class="tag">Blueprint</span></div>
-        <div class="proj-tags-more">+ 3 more</div>
-        </div>
-        <div class="proj-more">자세히 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-      </div>
-    </div>
     <!-- 2 -->
     <div class="proj-card fade-up" onclick="openModal('p2')" style="transition-delay:0.08s">
       <div class="proj-thumb thumb-thesis">✦<span class="proj-thumb-label">석사 논문</span></div>
       <div class="proj-body">
         <div class="proj-body-top">
         <div class="proj-category">석사 논문 · Research</div>
-        <div class="proj-title">논문 프로젝트 이름 입력</div>
-        <div class="proj-desc">석사 논문 연구 주제와 핵심 기여를 간략히 서술해 주세요.</div>
-        <div class="proj-tags"><span class="tag">Research</span><span class="tag">Unreal Engine</span><span class="tag">논문 키워드</span></div>
+        <div class="proj-title">생성형 에이전트를 활용한 동적 퀘스트 생성 시스템</div>
+        <div class="proj-desc">LLM 기반 생성형 에이전트가 스스로 계획·행동하며, 기억을 바탕으로 동적 퀘스트를 생성하는 시뮬레이션 환경 연구.</div>
+        <div class="proj-tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Generative AI</span></div>
+        <div class="proj-tags-more">+ 5 more</div>
         </div>
         <div class="proj-more">자세히 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </div>
@@ -798,13 +827,14 @@
     </div>
     <!-- 3 -->
     <div class="proj-card fade-up" onclick="openModal('p3')" style="transition-delay:0.16s">
-      <div class="proj-thumb thumb-outsource">◇<span class="proj-thumb-label">Unity · 외주</span></div>
+      <div class="proj-thumb thumb-outsource">◇<span class="proj-thumb-label">Unity · 탄막 슈팅</span></div>
       <div class="proj-body">
         <div class="proj-body-top">
-        <div class="proj-category">외주 · Unity</div>
-        <div class="proj-title">외주 프로젝트 이름 입력</div>
-        <div class="proj-desc">외주로 개발한 프로젝트 설명을 입력해 주세요.</div>
-        <div class="proj-tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
+        <div class="proj-category">팀 프로젝트 · Unity</div>
+        <div class="proj-title">The Switcher</div>
+        <div class="proj-desc">Red/Blue 형태를 전환하며 싸우는 탄막 슈팅 게임. 반대 색상의 탄막으로만 데미지를 주는 전략적 컨트롤이 핵심.</div>
+        <div class="proj-tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Android</span></div>
+        <div class="proj-tags-more">+ 4 more</div>
         </div>
         <div class="proj-more">자세히 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </div>
@@ -812,14 +842,14 @@
     </div>
     <!-- 4 -->
     <div class="proj-card fade-up" onclick="openModal('p4')" style="transition-delay:0.24s">
-      <div class="proj-thumb thumb-contract">▲<span class="proj-thumb-label">Unity · 계약직</span></div>
+      <div class="proj-thumb thumb-contract">▲<span class="proj-thumb-label">Unreal 5 · 액션</span></div>
       <div class="proj-body">
         <div class="proj-body-top">
-        <div class="proj-category">계약직 · Unity</div>
-        <div class="proj-title">계약직 프로젝트 이름 입력</div>
-        <div class="proj-desc">계약직으로 참여한 프로젝트 설명을 입력해 주세요.</div>
-        <div class="proj-tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">팀 개발</span></div>
-        <div class="proj-tags-more">+ 1 more</div>
+        <div class="proj-category">팀 프로젝트 · Unreal Engine 5</div>
+        <div class="proj-title">Monster Hunter Rise (Copy)</div>
+        <div class="proj-desc">언리얼 엔진 5로 모작한 3인칭 액션 게임. 4인 팀에서 플레이어 전투 시스템(이동·콤보·필살기)을 담당.</div>
+        <div class="proj-tags"><span class="tag">Unreal Engine 5</span><span class="tag">C++</span><span class="tag">Blueprint</span></div>
+        <div class="proj-tags-more">+ 4 more</div>
         </div>
         <div class="proj-more">자세히 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </div>
@@ -869,8 +899,8 @@
   </div>
   <p class="contact-desc">새로운 기회나 협업 제안은 언제든지 환영합니다.<br/>편하게 연락 주세요.</p>
   <div class="contact-links">
-    <a href="/cdn-cgi/l/email-protection#8af3e5fff8caefe7ebe3e6a4e9e5e7" class="contact-btn primary">이메일 보내기</a>
-    <a href="https://github.com/your-id" class="contact-btn" target="_blank">GitHub</a>
+    <a href="mailto:amzi1118@gmail.com" class="contact-btn primary">이메일 보내기</a>
+    <a href="https://github.com/EoJG" class="contact-btn" target="_blank">GitHub</a>
   </div>
 </section>
 
@@ -900,75 +930,227 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ── Modal data ── */
   const projects = {
-    p1: {
-      thumb: 'thumb-unreal', icon: '◈',
-      category: '대학원 · Unreal Engine',
-      title: '프로시저럴 던전 생성 시스템',
-      desc: '대학원 재학 중 Unreal Engine 5를 활용하여 개발한 프로시저럴 던전 생성 시스템입니다. BSP 알고리즘 기반으로 매 회차 다른 던전을 자동 생성합니다.',
+    p2: {
+      thumb: 'thumb-thesis', icon: '✦',
+      category: '석사 논문 · Research',
+      title: '생성형 에이전트를 활용한 동적 퀘스트 생성 시스템 설계 및 구현',
+      desc: '석사 논문 (2025) — 어재경\n\nLLM 기반 생성형 AI를 활용하여 스스로 계획하고 행동하는 NPC 에이전트를 설계하고, 에이전트의 행동 기억을 바탕으로 동적 퀘스트를 생성하는 시뮬레이션 환경을 Unity로 구현했습니다.',
       sections: [
         {
           label: 'Overview',
           type: 'row',
-          title: '프로젝트 개요',
-          text: '플레이어가 매 회차마다 다른 던전 구조를 경험할 수 있도록, 알고리즘 기반의 맵 자동 생성 시스템을 설계하고 구현했습니다. BSP 알고리즘을 응용하여 방과 복도를 자연스럽게 배치하고, 각 방에 적과 아이템을 확률 기반으로 스폰합니다.',
+          title: '연구 개요',
+          text: '기존 게임의 퀘스트는 사전에 정해진 스크립트에 의존해 반복성이 강했습니다. 본 연구에서는 LLM 기반 생성형 에이전트가 게임 내에서 스스로 행동하고 기억을 축적하며, 그 기억을 근거로 플레이어에게 개인화된 퀘스트를 자동 생성하는 시스템을 제안합니다.',
           image: null,
           reverse: false
         },
         {
-          label: 'Architecture',
-          type: 'arch-both',
-          image: null,
-          text: `[ BSP Tree ]
-     Root Node
-    ┌──────┴──────┐
-  Node A        Node B
-  ┌──┴──┐      ┌──┴──┐
-Room1 Room2  Room3 Room4
-  └──────────────────┘
-       Corridor (MST)`
+          label: '개발 환경',
+          type: 'arch-text',
+          text: `엔진     :  Unity 2022.3.42f1 (C#)
+AI       :  Meta LLaMA 3.1 8B
+플러그인  :  undreamai/LLMUnity
+환경     :  시뮬레이션 (Simulation)`
         },
         {
-          label: 'Feature',
-          type: 'row',
-          title: '몬스터 AI 행동 트리',
-          text: 'Unreal Engine의 Behavior Tree를 활용해 몬스터의 순찰 → 감지 → 추격 → 공격 흐름을 구현했습니다. EQS(Environment Query System)로 최적 공격 위치를 동적으로 계산합니다.',
-          image: null,
-          reverse: true
+          label: 'Architecture',
+          type: 'arch-mermaid',
+          text: `%%{init:{"flowchart":{"curve":"linear","rankSpacing":30}}}%%
+flowchart TD
+  A[계획 수립] --> B[행동 실행]
+  B --> C[행동 저장]
+  C --> D[기억 평가]
+  D --> E[반성 생성]
+  E --> F[퀘스트 생성]
+  F -.-> A`,
+          desc: `LLM이 에이전트의 성격·기억을 바탕으로 하루 계획을 수립하고, 행동을 순차 실행합니다.\n행동 결과는 기억으로 저장되며, LLM이 중요도·필요도를 평가해 반성 및 퀘스트를 생성합니다.\n퀘스트는 다음 회차 계획 수립의 컨텍스트로 재투입되어 에이전트의 행동이 회차마다 진화합니다.`
+        },
+        {
+          label: '계획 생성', type: 'arch-drawio',
+          xml: `<mxGraphModel dx="1657" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Kjkj6XEqg0vvBUFjW5uC-1" edge="1" parent="1" source="Kjkj6XEqg0vvBUFjW5uC-2" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" target="Kjkj6XEqg0vvBUFjW5uC-5" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="Kjkj6XEqg0vvBUFjW5uC-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" value="계획 생성 시작" vertex="1"><mxGeometry height="40" width="120" x="160" y="80" as="geometry" /></mxCell>
+        <mxCell id="Kjkj6XEqg0vvBUFjW5uC-4" edge="1" parent="1" source="Kjkj6XEqg0vvBUFjW5uC-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;" value="No"><mxGeometry relative="1" x="0.1186" y="10" as="geometry"><mxPoint as="offset" /><mxPoint x="360" y="210" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="Kjkj6XEqg0vvBUFjW5uC-5" parent="1" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" value="기억이 존재&lt;br&gt;&amp;nbsp;하는가?" vertex="1"><mxGeometry height="80" width="100" x="170" y="170" as="geometry" /></mxCell>
+        <mxCell id="Kjkj6XEqg0vvBUFjW5uC-13" edge="1" parent="1" source="Kjkj6XEqg0vvBUFjW5uC-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2lvUwqcQJ3_V2xTfph_I-1" value="&amp;nbsp; &amp;nbsp; Yes"><mxGeometry relative="1" y="10" as="geometry"><mxPoint as="offset" /><mxPoint x="280" y="220" as="sourcePoint" /><mxPoint x="220" y="290" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;계획 생성 프롬프트 생성&lt;/span&gt;" vertex="1"><mxGeometry height="260" width="200" x="120" y="290" as="geometry"><mxRectangle height="30" width="170" x="380" y="350" as="alternateBounds" /></mxGeometry></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-3" connectable="0" parent="2lvUwqcQJ3_V2xTfph_I-1" style="group;" value="" vertex="1"><mxGeometry height="290" width="160" x="20" y="35" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-4" parent="2lvUwqcQJ3_V2xTfph_I-3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;arcSize=7;" value="" vertex="1"><mxGeometry height="210" width="160" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-5" connectable="0" parent="2lvUwqcQJ3_V2xTfph_I-3" style="group" value="" vertex="1"><mxGeometry height="270" width="120" x="20" y="10" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-6" parent="2lvUwqcQJ3_V2xTfph_I-5" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" value="성격 프롬프트" vertex="1"><mxGeometry height="40" width="120" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-7" parent="2lvUwqcQJ3_V2xTfph_I-5" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" value="계획 생성 프롬프트" vertex="1"><mxGeometry height="40" width="120" y="50" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-8" parent="2lvUwqcQJ3_V2xTfph_I-5" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" value="기억" vertex="1"><mxGeometry height="80" width="120" y="100" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-9" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;계획 생성 프롬프트 생성&lt;/span&gt;" vertex="1"><mxGeometry height="160" width="200" x="360" y="180" as="geometry"><mxRectangle height="30" width="170" x="380" y="350" as="alternateBounds" /></mxGeometry></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-10" connectable="0" parent="2lvUwqcQJ3_V2xTfph_I-9" style="group" value="" vertex="1"><mxGeometry height="290" width="160" x="20" y="35" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-11" parent="2lvUwqcQJ3_V2xTfph_I-10" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;arcSize=7;" value="" vertex="1"><mxGeometry height="110" width="160" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-12" connectable="0" parent="2lvUwqcQJ3_V2xTfph_I-10" style="group" value="" vertex="1"><mxGeometry height="270" width="120" x="20" y="10" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-13" parent="2lvUwqcQJ3_V2xTfph_I-12" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" value="성격 프롬프트" vertex="1"><mxGeometry height="40" width="120" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-14" parent="2lvUwqcQJ3_V2xTfph_I-12" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" value="계획 생성 프롬프트" vertex="1"><mxGeometry height="40" width="120" y="50" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" value="프롬프트를 이용한&lt;br&gt;계획 생성" vertex="1"><mxGeometry height="40" width="120" x="160" y="610" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-17" edge="1" parent="1" source="2lvUwqcQJ3_V2xTfph_I-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2lvUwqcQJ3_V2xTfph_I-16" value=""><mxGeometry relative="1" y="10" as="geometry"><mxPoint as="offset" /><mxPoint x="230" y="260" as="sourcePoint" /><mxPoint x="230" y="300" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" value="계획 List로 저장" vertex="1"><mxGeometry height="40" width="120" x="160" y="690" as="geometry" /></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-22" edge="1" parent="1" source="2lvUwqcQJ3_V2xTfph_I-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2lvUwqcQJ3_V2xTfph_I-19" value=""><mxGeometry relative="1" y="10" as="geometry"><mxPoint as="offset" /><mxPoint x="230" y="560" as="sourcePoint" /><mxPoint x="230" y="620" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="2lvUwqcQJ3_V2xTfph_I-23" edge="1" parent="1" source="2lvUwqcQJ3_V2xTfph_I-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="2lvUwqcQJ3_V2xTfph_I-16" value=""><mxGeometry relative="1" y="10" as="geometry"><mxPoint as="offset" /><mxPoint x="460" y="350" as="sourcePoint" /><mxPoint x="230" y="700" as="targetPoint" /></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>`,
+          boxText: `프롬프트 설계
+─────────────────────────────────
+성격 + 계획생성 프롬프트 + 데이터 형식 프롬프트를
+결합하여 LLM에 전달. 기억이 있는 경우 기억도 포함.
+출력 형식을 일관된 JSON으로 고정하기 위해
+형식 가이드라인과 범주 설명을 프롬프트에 포함.
+계획 종료를 확인하기 위해 마지막에 "end" 키 요구.
+
+context size 제한 문제 해결
+─────────────────────────────────
+하드웨어 성능 제약으로 계획이 중간에 잘리는 문제 발생.
+"end" 키 미존재 시 미완성으로 판단하고,
+마지막 생성된 계획 + 완성형 프롬프트를 재전달하여
+중단된 부분부터 이어서 작성하도록 구현.
+
+비정형 JSON 파싱
+─────────────────────────────────
+LLM이 완전하지 않은 JSON을 생성하는 경우를 대비해
+JsonUtility 대신 비정형 JSON도 처리 가능한
+직접 파서 구현 (DayPlan 구조체에 저장)`
+        },
+        {
+          label: '기억 평가', type: 'arch-text',
+          text: `기억 저장 구조
+─────────────────────────────────
+에이전트가 행동 실행 시 애니메이션 전환 시점마다
+시간 · 위치 · 행동을 Memory 구조체에 기록.
+각 기억은 중요도 · 필요도를 -1로 초기화 후 LLM 평가.
+
+LLM 기반 중요도 · 필요도 평가
+─────────────────────────────────
+성격과 목표에 따라 각 기억을 1~10점으로 평가.
+프롬프트에 1 · 3 · 5 · 7 · 10점 기준과 예시를 포함하여
+LLM이 일관된 기준으로 점수를 산출하도록 유도.
+반환된 점수 문자열에서 Regex로 숫자를 추출하여 저장.`
+        },
+        {
+          label: '퀘스트 생성', type: 'arch-text',
+          text: `퀘스트 프롬프트 구성
+─────────────────────────────────
+중요도 · 필요도로 필터링한 기억을 퀘스트 생성 프롬프트에
+포함하여 LLM에 전달. 생성 결과는 Quest 구조체에 파싱 저장.
+
+문제 해결 ① 잘린 퀘스트
+─────────────────────────────────
+퀘스트가 완전히 생성되지 못한 경우,
+미완성 데이터를 포함한 프롬프트를 재전달하여
+이어서 작성하도록 요청.
+
+문제 해결 ② 생성 개수 불일치
+─────────────────────────────────
+요청 개수와 실제 생성 개수가 다를 경우,
+완료된 퀘스트를 포함한 프롬프트로
+부족한 n개를 추가 요청하여 개수를 맞춤.`
         },
         {
           label: 'Result',
           type: 'arch-text',
-          text: `평균 던전 생성 시간  :  0.03초 이내
-던전 조합 경우의 수  :  이론상 무한대
-몬스터 AI 상태       :  순찰 / 추격 / 공격 / 복귀
-지도교수 평가        :  알고리즘 완성도 우수`
+          text: `검증 항목              결과
+─────────────────────────────────
+에이전트 계획 다양성  :  회차마다 상이한 행동 패턴 생성
+동적 퀘스트 다양성    :  기억 기반 개인화 퀘스트 생성 확인
+게임 콘텐츠 활용      :  향후 상용 게임 적용 가능성 제시
+발표 연도             :  2025 · 광운대학교 스마트융합대학원`
         }
       ],
-      tags: ['Unreal Engine 5','C++','Blueprint','BSP Algorithm','Procedural Generation','AI Behavior Tree'],
-      github: '#', video: '#'
-    },
-    p2: {
-      thumb: 'thumb-thesis', icon: '✦',
-      category: '석사 논문 · Research',
-      title: '논문 프로젝트 이름 입력',
-      desc: '석사 논문 연구 주제, 핵심 기여, 연구 방법론, 결과 등을 상세히 작성해 주세요.',
-      tags: ['Research','Unreal Engine','논문 키워드'],
-      github: '#', paper: '#'
+      tags: ['Unity','C#','Generative AI','Meta LLaMA 3.1 8B','LLMUnity','Generative Agents','동적 퀘스트','NPC'],
+      paper: 'https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=7691f9437b3add41ffe0bdc3ef48d419'
     },
     p3: {
       thumb: 'thumb-outsource', icon: '◇',
-      category: '외주 · Unity',
-      title: '외주 프로젝트 이름 입력',
-      desc: '외주로 개발한 프로젝트의 상세 설명을 작성해 주세요. 클라이언트 요구사항, 담당 기능, 개발 기간 등을 포함하면 좋습니다.',
-      tags: ['Unity','C#','기술 키워드','플랫폼'],
-      github: '#', video: '#'
+      category: '팀 프로젝트 · Unity',
+      title: 'The Switcher',
+      desc: 'Red/Blue 두 가지 형태를 전환하며 싸우는 탄막 슈팅 게임.\n\n3인 팀 프로젝트(기획 1, 아트 1, 프로그래머 1)에서 프로그래밍을 전담하였으며, 장비 관리 시스템, 몬스터 생성 관리, 오브젝트 풀링 등 핵심 게임플레이 시스템을 구현했습니다.',
+      sections: [
+        {
+          label: 'Overview', type: 'row',
+          title: '프로젝트 개요',
+          text: '같은 색상의 탄막은 무시하고 반대 색상의 탄막으로만 데미지를 줄 수 있는 형태 전환 메커닉이 핵심인 탄막 슈팅 게임입니다. 플레이어는 Red·Blue 두 형태를 빠르게 전환하며 탄막을 피하고 공격하는 전략적 판단이 요구됩니다.',
+          image: null, reverse: false
+        },
+        {
+          label: 'Architecture', type: 'arch-text',
+          text: `플랫폼   :  Android
+엔진     :  Unity 2020.3.12f1
+언어     :  C#
+팀 구성  :  3인 (기획 1 · 아트 1 · 프로그래머 1)
+담당     :  프로그래밍 전담
+─────────────────────────────────
+주요 구현
+  · 장비 데이터 관리 (ItemData / AllWeaponList)
+  · 장비 장착 정보 유지 (WeaponLoadManager · 싱글톤)
+  · 몬스터 생성 관리 (.csv 데이터 테이블 연동)
+  · 총알 오브젝트 풀링 (플레이어 · 몬스터 분리 구현)`
+        },
+        {
+          label: 'Key Systems', type: 'arch-text',
+          text: `오브젝트 풀링
+─────────────────────────────────
+ShooterControl / EnemyShooterControl 클래스로
+플레이어·몬스터 총알을 풀링 관리하여
+생성·제거 비용을 최소화
+
+.csv 데이터 테이블 연동
+─────────────────────────────────
+기획자가 코드 수정 없이 몬스터 스폰 타이밍,
+이동 경로, 장비 공격속도 등을 데이터 테이블로
+직접 조정 가능한 구조로 설계`
+        }
+      ],
+      tags: ['Unity 2020','C#','Android','탄막 슈팅','오브젝트 풀링','싱글톤 패턴','CSV 데이터'],
+      github: '#'
     },
     p4: {
       thumb: 'thumb-contract', icon: '▲',
-      category: '계약직 · Unity',
-      title: '계약직 프로젝트 이름 입력',
-      desc: '계약직으로 참여한 프로젝트의 상세 설명을 작성해 주세요. 팀 내 역할, 기여한 기능, 사용한 기술 등을 적어 주세요.',
-      tags: ['Unity','C#','팀 개발','기술 키워드'],
+      category: '팀 프로젝트 · Unreal Engine 5',
+      title: 'Monster Hunter Rise (Copy)',
+      desc: '몬스터 헌터 라이즈를 언리얼 엔진 5로 모작한 3인칭 액션 게임.\n\n4인 팀 프로젝트(기획 1, 프로그래머 3)에서 플레이어 전투 시스템 프로그래밍을 담당하여 이동·회피·기본 공격 콤보·필살기 시스템을 구현했습니다.',
+      sections: [
+        {
+          label: 'Overview', type: 'row',
+          title: '프로젝트 개요',
+          text: '몬스터 공격을 회피하고 무기를 활용한 콤보 공격으로 몬스터를 사냥하는 액션 게임입니다. 언리얼 엔진 5.2를 사용하여 4인 팀으로 제작하였으며, 플레이어의 전투 시스템 전반을 담당했습니다.',
+          image: null, reverse: false
+        },
+        {
+          label: 'Architecture', type: 'arch-text',
+          text: `플랫폼   :  PC (Windows)
+엔진     :  Unreal Engine 5.2
+언어     :  C++ / Blueprint
+팀 구성  :  4인 (기획 1 · 프로그래머 3)
+담당     :  프로그래밍 · 플레이어 전투 시스템
+─────────────────────────────────
+주요 구현
+  · 이동 · 회피 (FRotationMatrix · canMove 변수 제어)
+  · 아이템 사용 (상하체 블렌딩 · Notify State 타이밍)
+  · 기본 공격 4단 콤보 (Notify 기반 입력 타이밍 제어)
+  · 필살기 투구깨기 (점프 공격 → 내려찍기 연계)`
+        },
+        {
+          label: 'Key Systems', type: 'arch-text',
+          text: `Notify 기반 콤보 시스템
+─────────────────────────────────
+StartAnimation / CanAttackAgain / EndAnimation
+세 가지 Notify로 콤보 입력 타이밍을 정밀 제어
+내려베기 → 내려베기 → 찌르기 → 올려베기 4단 콤보
+
+공격 판정 (Socket + Notify State)
+─────────────────────────────────
+무기 스켈레톤에 시작·끝 Socket을 추가하고
+DealDamageNotify State로 Sphere Trace 판정의
+범위와 타이밍을 애니메이션에 정밀하게 연동`
+        }
+      ],
+      tags: ['Unreal Engine 5','C++','Blueprint','액션','콤보 시스템','Notify','애니메이션 블렌딩'],
       github: '#', video: '#'
     }
   };
@@ -997,13 +1179,24 @@ Room1 Room2  Room3 Room4
         inner = `<div class="modal-arch-img">${imgHtml}</div>`;
         if (sec.caption) inner += `<div class="modal-row-text">${sec.caption}</div>`;
       } else if (sec.type === 'arch-text') {
-        inner = `<div class="modal-arch-box">${sec.text}</div>`;
+        inner = `<p class="modal-arch-desc" style="white-space:pre-line">${sec.text}</p>`;
       } else if (sec.type === 'arch-both') {
         const imgHtml = sec.image
           ? `<img src="${sec.image}" alt="architecture" />`
           : `<div class="img-placeholder">📐 아키텍처 이미지 준비 중</div>`;
         inner = `<div class="modal-arch-img">${imgHtml}</div>
                  <div class="modal-arch-box">${sec.text}</div>`;
+      } else if (sec.type === 'arch-mermaid') {
+        const wideClass = sec.wide ? ' wide' : '';
+        inner = `<div class="modal-mermaid${wideClass}"><pre class="mermaid">${sec.text}</pre></div>`;
+        if (sec.desc) inner += `<p class="modal-arch-desc">${sec.desc}</p>`;
+        if (sec.boxText) inner += `<p class="modal-arch-desc" style="margin-top:1rem;white-space:pre-line">${sec.boxText}</p>`;
+      } else if (sec.type === 'arch-drawio') {
+        const mxData = JSON.stringify({xml: sec.xml, nav: false, resize: true, fit: 1})
+          .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        inner = `<div class="modal-drawio"><div class="mxgraph" style="max-width:100%" data-mxgraph='${mxData}'></div></div>`;
+        if (sec.desc) inner += `<p class="modal-arch-desc">${sec.desc}</p>`;
+        if (sec.boxText) inner += `<p class="modal-arch-desc" style="margin-top:1rem;white-space:pre-line">${sec.boxText}</p>`;
       }
       return `
         <div class="modal-section">
@@ -1021,6 +1214,22 @@ Room1 Room2  Room3 Room4
     document.getElementById('modalTitle').textContent = p.title;
     document.getElementById('modalDesc').textContent = p.desc;
     document.getElementById('modalSections').innerHTML = renderSections(p.sections);
+    if (window.GraphViewer) {
+      GraphViewer.processElements();
+      setTimeout(() => {
+        const container = document.querySelector('.modal-drawio');
+        const mxEl = container?.querySelector('.mxgraph');
+        if (container && mxEl) {
+          const containerW = container.offsetWidth - 16;
+          const mxW = mxEl.scrollWidth;
+          const mxH = mxEl.scrollHeight;
+          const scale = Math.min(containerW / mxW, 1);
+          mxEl.style.transform = `scale(${scale})`;
+          mxEl.style.transformOrigin = 'top center';
+          container.style.height = Math.round(mxH * scale + 16) + 'px';
+        }
+      }, 300);
+    }
     document.getElementById('modalTags').innerHTML = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
 
     let links = `<a href="${p.github}" class="modal-link" target="_blank">
@@ -1039,6 +1248,8 @@ Room1 Room2  Room3 Room4
     document.getElementById('modalOverlay').classList.add('open');
     document.getElementById('modalBox').scrollTop = 0;
     document.body.style.overflow = 'hidden';
+    const mermaids = document.querySelectorAll('.mermaid:not([data-processed])');
+    if (mermaids.length) mermaid.run({ nodes: mermaids });
   }
 
   function closeModal(e) {
